@@ -1,0 +1,79 @@
+/* ---NavBar---- */
+.App{
+    background-color: #ffffff;
+    display:flex;
+    justify-content: space-between;
+    min-height: 7vh;
+    align-items: center;
+ 
+}
+
+.toggle{
+    background-color: #8C697D;
+    display: flex;
+    justify-content: center;
+} 
+.nav-item-categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item img{
+    object-fit: cover;
+    object-position: 0 60%;
+    cursor: pointer;
+}
+.nav-items{
+    margin-right:1rem;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    padding: 0 1rem;
+    color: white;
+}
+.nav-items-active{
+    margin-right:1rem;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    padding: 0 1rem;
+    color: white;
+    background-color: #e3e3daa2;
+}
+.shop{
+    height: 2rem;
+    width: 5rem;
+    color:#FFC600 ;
+}
+.badgeCont{
+    position: relative;
+}
+.badge{
+    position: absolute;
+    right:1.5rem ;
+    color:#000000 ;
+ 
+}
+.nav-items:hover, .nav-items:focus{
+   background-color: #7b1fa2;
+    transition:  background-color 0.8s;
+    
+}
+.form-control{
+    width: 34vw;
+    height: vh;
+}
+
+
+
+.nav-item img{
+    width: 12rem;
+    height: 5rem;
+    object-fit: cover;
+}

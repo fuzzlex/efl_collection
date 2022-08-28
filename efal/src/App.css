@@ -1,0 +1,85 @@
+
+
+
+/* ---Home--- */
+
+.carousel{
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    object-position: 1% 100%;
+    scale: 0.95;
+    
+}
+.card{
+    max-height: 30rem;
+    margin: 1rem;
+    padding: 1.5rem;
+    width: 20rem;
+    box-shadow:0.5rem 0.5rem 0.5rem rgb(235, 225, 208);
+    cursor: pointer;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+
+
+}
+.card:hover{
+    /* border: 1px solid gray; */
+    box-shadow:1rem 1rem 1rem rgb(235, 225, 208);
+    transition: 0.4s box-shadow ;
+}
+.card-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.cardimage{
+    width: max-content;
+    height: 19rem;
+    /* object-fit: fill; */
+}
+.cardprice{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+.toasty{
+width: 100vw;
+
+}
+/* -----ShoppedPage----- 
+*/
+.shoppedcard{
+    max-width:95vw;
+    max-height:2rem ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    position: relative;
+}
+.shoppedcardimage{
+    width:5rem;
+    height: 5rem;
+    position: absolute;
+    left: 0;
+}
+.shoppedcardtext{
+    position: absolute;
+    left: 10vw;
+    width: 50vw;
+
+}
+
+/* @media screen and (max-width: 700px) {
+    .App{
+        
+    }
+
+    
+} */
