@@ -28,8 +28,6 @@ const Cards = () => {
   const filteredList = useSelector((state) => state.shopReducer.productList);
   const handler = (cardInfo) => {
     navigate("details", {state : {cardInfo}})
-
-
   }
   
 

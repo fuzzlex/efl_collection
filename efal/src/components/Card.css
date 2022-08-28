@@ -1,3 +1,12 @@
+
+.card{
+    margin: 2rem;
+
+}
+.cardimage{
+    width: 13rem;
+}
+
 .shop{
     font-size: 0.5rem;
 }
