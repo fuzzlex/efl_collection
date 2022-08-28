@@ -10,7 +10,7 @@ const MenuCategory = () => {
   const [categoryActive, setCategoryActive] = useState(true);
 
   const fetchData = async () => {
-    await fetch("http://127.0.0.1:8000/api/article/")
+    await fetch("https://efalcollection.herokuapp.com/api/article/")
       .then((res) => res.json())
       .then((data) => setfirst(data));
   };
