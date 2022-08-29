@@ -31,6 +31,8 @@ const Navbar = () => {
     dispatch(fetchAllData());
     navigate("/");
   };
+  const addedProducts = useSelector((state) => state.shopReducer.toAddedProduct);
+
 
   return (
     <div>
@@ -51,19 +53,7 @@ const Navbar = () => {
         <Container className="menuitem">
           <NavBar.Collapse>
             <Nav className="nav-item-categories">
-              <NavDropdown className="nav-items-category" title="Ürünlerimiz">
-                <NavDropdown.Item href="#products/tea">Elbise Ferace</NavDropdown.Item>
-                <NavDropdown.Item href="#products/coffee">
-                  Ferace
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#products/chocolate">
-                  Aksesuar
-                </NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
-                <NavDropdown.Item href="#products/promo">
-                  Şal
-                </NavDropdown.Item>
-              </NavDropdown>
+              
               <Nav.Item  >
               <Nav.Link  className={window.location.pathname === "/" ? "nav-items-active" : "nav-items"} onClick={() => navigate("/")}>
                 Ana Sayfa
@@ -99,7 +89,7 @@ const Navbar = () => {
               >
                 <CgShoppingCart className="shop" />
                 <Badge className="badge" pill bg="warning">
-                  {shoppedIds}
+                  {addedProducts.length}
                 </Badge>
               </Nav.Link>
             </Nav>

@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,700&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:1450px) {
+    
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+}
+/* ------header */
+
+.header{
+    text-align: center;
+    font-size: 32px;
+    margin: 15px;
+    font-weight: 700;
+}
+
+
+/* ------main */
+
+
+.main{
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+}
+
+
+h3{
+    color: #333333;
+    font-size: 18px;
+}
+
+.contact-inf-form{
+    width: 35rem;
+}
+
+
+.continue-submit{
+    display: flex;
+    justify-content: end;
+    margin-top: 2rem;
+}
+.continue-submit input{
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f7a45c;
+    color: aliceblue;
+    border: none;
+}
+.continue-submit input:hover{
+    cursor: pointer;
+}
+
+/*-----BUY----- */
+
+.sectionBuy{
+    /* margin: 2rem; */
+    background-color: #EEEEEE;
+    width: 32rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+}
+.buy-vintage{
+    display: flex;
+}
+.buyimg{
+    width: 10rem;
+    margin: 1rem;
+    border-radius: 20px;
+}
+.buy-vintage_text{
+    margin: 1rem;
+}
+.buy-vintage_text h4{
+    margin-top: 0.5rem;
+    font-size: 19px;
+    color: #F2994A;
+}
+del{
+    color: #333333;
+    font-size: 15px;
+}
+.buy-vintage_text__button_vintage{
+    margin: 2rem 0.5rem ;
+    border: 1px solid #333333;
+    display: flex;
+    justify-content:space-between;
+    font-size: 20px;
+    padding: 0.5rem;
+}
+#subtract1{
+    width: 2rem;
+    height: 2rem;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#subtract1:hover{
+    cursor: pointer;
+}
+#plus1{
+    width: 2rem;
+    height: 2rem;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+#plus1:hover{
+    cursor: pointer;
+}
+#numberVin1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy-levi{
+    display: flex;
+}
+
+.buy-levi_text{
+    margin: 1rem;
+}
+.buy-levi_text h4{
+    margin-top: 0.5rem;
+    font-size: 19px;
+    color: #F2994A;
+}
+del{
+    color: #333333;
+    font-size: 15px;
+}
+.buy-levi_text__button_levi{
+    margin: 2rem 0.5rem ;
+    border: 1px solid #333333;
+    display: flex;
+    justify-content:space-between;
+    font-size: 20px;
+    padding: 0.5rem;
+    width: 9rem;
+}
+#subtract2{
+    width: 2rem;
+    height: 2rem;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#subtract2:hover{
+    cursor: pointer;
+}
+#plus2{
+    width: 2rem;
+    height: 2rem;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+#plus2:hover{
+    cursor: pointer;
+}
+#numberVin2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footerBuy{
+    margin: 2rem 0rem;
+}
+.shipping{
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 1px solid #333333;
+    margin: 1rem 0.8rem;
+}
+.total{
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 1px solid #333333;
+    margin: 1rem 0.8rem;
+}
+
+}
+@media screen and (max-width:900px) {
+    .main{
+        flex-wrap: wrap-reverse;
+        justify-content:center;
+        align-items: space-between;
+
+    }
+
+
+    .sectionBuy{
+        order: 0;
+        padding: 1rem;
+        
+    }
+    .contact-inf-form{
+        width: 22rem;
+
+    }
+    
+}

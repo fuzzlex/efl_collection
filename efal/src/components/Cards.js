@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { addCard, fetchAllData } from "../redux/actions/shopActions";
+import { addCard, addShoppingArea, fetchAllData } from "../redux/actions/shopActions";
 import { useNavigate } from "react-router-dom";
 
 import "./Card.css"
+import { successNote } from "./Toasty";
 
 const Cards = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,17 @@ const Cards = () => {
     dispatch(fetchAllData());
   }, []);
 
-  const handleAddCard = (item) => {
-    console.log(item)
+  const handleAddCard = (product) => {
     const newItem = {
-      ...item,
-      productSellAmount : item.productSellAmount + 1
-    }
-    console.log(item)
+      ...product,
+      productSellAmount: product.productSellAmount + 1,
+      productAmount: 1
 
-    dispatch(addCard(newItem));
+    };
+
+    dispatch(addShoppingArea(newItem));
+    successNote("Başarıyla Sepetinize Eklendi") 
+
   };
   const filteredList = useSelector((state) => state.shopReducer.productList);
   const handler = (cardInfo) => {

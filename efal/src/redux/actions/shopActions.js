@@ -1,8 +1,9 @@
-import { FILTER_CATEGORY, ADD_TO_CARD ,SEARCH,FETCH_ALL} from './blogTypes';
+import { FILTER_CATEGORY, ADD_TO_CARD ,SUBTRACT_TO_CARD, SEARCH,FETCH_ALL} from './blogTypes';
 import { infoNote, successNote } from '../../components/Toasty';
 
 export const setShopActionFilter = payload => ({ type: FILTER_CATEGORY, state: payload });
 export const setShopActionAddCard = (payload) => ({ type: ADD_TO_CARD, state:payload});
+export const setShopActionSubtractCard = (payload) => ({ type: SUBTRACT_TO_CARD, state:payload});
 export const setShopActionSearch = (payload) => ({ type: SEARCH, state:payload });
 export const setShopActionFetch = (payload) => ({ type: FETCH_ALL, state:payload });
 
@@ -60,10 +61,25 @@ export const addCard =  (body) => {
   })
   .then(res => res.json())
   .then(data => data)
-  dispatch(setShopActionAddCard(newData))  
+  // dispatch(setShopActionAddCard(newData))  
   // successNote("Başarıyla Sepetinize Eklendi") 
 };
 }
+export const addShoppingArea =  (product) => {
+  return async dispatch => {
+
+  dispatch(setShopActionAddCard(product))  
+  }
+};
+export const subtractShoppingArea =  (product) => {
+  return async dispatch => {
+
+  dispatch(setShopActionSubtractCard(product))  
+  // successNote("Başarıyla Sepetinizden Çıkarıldı") 
+  }
+};
+
+
 // export const productUpdate = async (body, id)  => {
 //   return await fetch(`https://127.0.0.1:8000/api/article/${id}/`,
 //   {

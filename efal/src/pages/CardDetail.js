@@ -4,27 +4,30 @@ import "./CardDetail.css";
 import Form from "react-bootstrap/Form";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addCard } from "../redux/actions/shopActions";
+import { addCard, addShoppingArea } from "../redux/actions/shopActions";
 import { CgShoppingCart } from "react-icons/cg";
 import { ImEye } from "react-icons/im";
 import ReactImageMagnify from "react-image-magnify";
+import { successNote } from "../components/Toasty";
 
 const CardDetail = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const cardDetails = location.state.cardInfo;
   console.log(cardDetails);
-  const [productAmount, setProductAmount] = useState(1)
-  const [loadImage, setLoadImage] = useState(cardDetails.img)
+  const [productAmount, setProductAmount] = useState(1);
+  const [loadImage, setLoadImage] = useState(cardDetails.img);
 
-  const handleAddCard = (item) => {
-    console.log(item);
+  const handleAddCard = (product) => {
     const newItem = {
-      ...item,
-      productSellAmount: item.productSellAmount + 1,
+      ...product,
+      productSellAmount: product.productSellAmount + 1,
+      productAmount: productAmount,
     };
 
-    dispatch(addCard(newItem));
+    dispatch(addShoppingArea(newItem));
+    successNote("Başarıyla Sepetinize Eklendi") 
+
   };
   const handleAddVievs = (item) => {
     console.log(item);
@@ -37,20 +40,24 @@ const CardDetail = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    handleAddVievs(cardDetails)
-
-
-  }, [])
-  const handleSelectImage = (image) =>{
-    setLoadImage(image) 
-    window.scrollTo(0, 0)
-  }
-  const imageList = ["https://www.emare.com.tr/image/cache/catalog/urunler/frc-0002/s1VSxIOCYEsHS9lEyloZ04FofQVky-800x1200.jpg","https://www.emare.com.tr/image/cache/catalog/urunler/frc-0004/ana1-800x1200.jpg","https://www.emare.com.tr/image/cache/catalog/urunler/frc-0002/u6ZIKpCj0MQ4ye1Hg85DYFfcoiaQW-800x1200.jpg",cardDetails.img,cardDetails.img,cardDetails.img]
-  
+    window.scrollTo(0, 0);
+    handleAddVievs(cardDetails);
+  }, []);
+  const handleSelectImage = (image) => {
+    setLoadImage(image);
+    window.scrollTo(0, 0);
+  };
+  const imageList = [
+    "https://www.emare.com.tr/image/cache/catalog/urunler/frc-0002/s1VSxIOCYEsHS9lEyloZ04FofQVky-800x1200.jpg",
+    "https://www.emare.com.tr/image/cache/catalog/urunler/frc-0004/ana1-800x1200.jpg",
+    "https://www.emare.com.tr/image/cache/catalog/urunler/frc-0002/u6ZIKpCj0MQ4ye1Hg85DYFfcoiaQW-800x1200.jpg",
+    cardDetails.img,
+    cardDetails.img,
+    cardDetails.img,
+  ];
 
   return (
-    <div onScroll={(e) => e.target } className="card-detail-root">
+    <div onScroll={(e) => e.target} className="card-detail-root">
       <div className="shopping-area">
         <div className="shopping-area-image">
           <ReactImageMagnify
@@ -70,17 +77,27 @@ const CardDetail = () => {
             }}
           />
           <div className="shopping-area-image-other">
-          {imageList.map(image => 
-            <img onClick={() => handleSelectImage(image)}  src={image} alt="" />
-          )}
+            {imageList.map((image) => (
+              <img
+                onClick={() => handleSelectImage(image)}
+                src={image}
+                alt=""
+              />
+            ))}
           </div>
         </div>
 
         <div className="shopping-area-desc">
           <h3>{cardDetails.title}</h3>
-          <p><ImEye style={{fontSize:"1.5rem", margin:"0 0.5rem"}} /> {cardDetails.views} görüntülenme</p>
+          <p>
+            <ImEye style={{ fontSize: "1.5rem", margin: "0 0.5rem" }} />{" "}
+            {cardDetails.views} görüntülenme
+          </p>
           <h6>55 Soru | Cevap</h6>
-          <h4>{productAmount * cardDetails.price},00 TL <span >{productAmount * cardDetails.price + 50},00 TL</span></h4>
+          <h4>
+            {productAmount * cardDetails.price},00 TL{" "}
+            <span>{productAmount * cardDetails.price + 50},00 TL</span>
+          </h4>
           <Form.Select placeholder="Beden" aria-label="Default select example">
             {/* <option disabled>Beden</option> */}
             <option value="1">Tek Beden (36- 42)</option>
@@ -92,7 +109,11 @@ const CardDetail = () => {
                 value={productAmount}
                 style={{ width: "7rem", marginRight: "1rem" }}
                 type="number"
-                onChange={(e) => e.target.value <= 0 ? setProductAmount(1) : setProductAmount(e.target.value) }
+                onChange={(e) =>
+                  e.target.value <= 0
+                    ? setProductAmount(1)
+                    : setProductAmount(e.target.value)
+                }
               />
             </Form.Group>
             <Button

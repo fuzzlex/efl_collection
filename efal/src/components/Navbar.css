@@ -48,8 +48,8 @@
 }
 .shop{
     height: 2rem;
-    width: 5rem;
-    color:#FFC600 ;
+    width: 6rem;
+    color:#f4511e ;
 }
 .badgeCont{
     position: relative;
@@ -58,10 +58,11 @@
     position: absolute;
     right:1.5rem ;
     color:#000000 ;
+    font-size: 0.8rem;
  
 }
 .nav-items:hover, .nav-items:focus{
-   background-color: #7b1fa2;
+   background-color: #ddbfea;
     transition:  background-color 0.8s;
     
 }
