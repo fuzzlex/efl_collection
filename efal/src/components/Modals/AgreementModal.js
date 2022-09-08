@@ -18,47 +18,47 @@ const AgreementModal = (props) => {
         <h4>TARAFLAR</h4>
         <p>Bu sözleşme,</p>
         <Table striped bordered>
-          <thead>
-            <tr>
-              <th>-</th>
-              <th>SATICI</th>
-              <th>ALICI</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ÜNVAN</td>
-              <td>KUVAERSNA LİT ŞTİ</td>
-              <td>---</td>
-            </tr>
-            <tr>
-              <td>TC NO VERGİ NO:</td>
-              <td>22626</td>
-              <td>----</td>
-            </tr>
-            <tr>
-              <td>ADRES</td>
-              <td>MAH SOKAĞI İSTANBUL</td>
-              <td>---</td>
-            </tr>
-            <tr>
-              <td>TELEFON</td>
-              <td>+90 543 171 9431</td>
-              <td>---</td>
-            </tr>
-            <tr>
-              <td>E-MAİL</td>
-              <td>info@efalcollection.com</td>
-              <td>---</td>
-            </tr>
+        <thead>
+          <tr>
+            <th>-</th>
+            <th>SATICI</th>
+            <th>ALICI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ÜNVAN</td>
+            <td>KUVARS TİCARET</td>
+            <td>---</td>
+          </tr>
+          <tr>
+            <td>TC NO VERGİ NO:</td>
+            <td></td>
+            <td>----</td>
+          </tr>
+          <tr>
+            <td>ADRES</td>
+            <td>Necip Fazıl Mah. Yozgat Cad. No:33 İç Kap.No:2 Sultanbeyli / İstanbul</td>
+            <td>---</td>
+          </tr>
+          <tr>
+            <td>TELEFON</td>
+            <td>+90 543 171 9431</td>
+            <td>---</td>
+          </tr>
+          <tr>
+            <td>E-MAİL</td>
+            <td>info@efalcollection.com</td>
+            <td>---</td>
+          </tr>
 
-            <tr>
-              <td></td>
-              <td>BUNDAN SONRA SATICI OLARAK ANILACAKTIR</td>
-              <td>BUNDAN SONRA ALICI OLARAK ANILACAKTIR </td>
-            </tr>
-          </tbody>
-        </Table>
+          <tr>
+            <td></td>
+            <td>BUNDAN SONRA SATICI OLARAK ANILACAKTIR</td>
+            <td>BUNDAN SONRA ALICI OLARAK ANILACAKTIR </td>
+          </tr>
+        </tbody>
+      </Table>
 
         <p>arasında aşağıdaki hükümler çerçevesinde yapılmıştır.</p>
         <b>1.SÖZLEŞME KONUSU</b>
