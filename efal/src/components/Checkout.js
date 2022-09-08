@@ -215,9 +215,9 @@ const Checkout = () => {
               <label htmlFor="floatingInputCustom">Posta Kodu</label>
             </Form.Floating>
 
-            <div className="continue-submit">
+            {/* <div className="continue-submit">
               <input onClick={handleSubmit} type="submit" value="Continue" />
-            </div>
+            </div> */}
           </Form>
         </div>
 
