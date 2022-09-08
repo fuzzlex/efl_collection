@@ -55,14 +55,14 @@ export const fetchSelectedComments = (payload) => ({
 
 export const fetchAllData = () => {
   return async (dispatch) => {
-    await fetch("http://127.0.0.1:8000/api/article/")
+    await fetch("https://efalcollection.herokuapp.com/api/article/")
       .then((res) => res.json())
       .then((data) => dispatch(setShopActionFetch(data)));
   };
 };
 export const fetchAllImages = () => {
   return async (dispatch) => {
-       await fetch("http://127.0.0.1:8000/api/image/")
+       await fetch("https://efalcollection.herokuapp.com/api/image/")
       .then((res) => res.json())
       .then((data) =>  dispatch(setFetchSelectedImage(data)));
     };
@@ -71,7 +71,7 @@ export const fetchAllImages = () => {
     }
 export const fetchSelectedComment = (productCode) => {
   return async (dispatch) => {
-    const response =  await fetch("http://127.0.0.1:8000/api/comment/")
+    const response =  await fetch("https://efalcollection.herokuapp.com/api/comment/")
       .then((res) => res.json())
       .then((data) =>  data);
       const newData = response?.filter((comment) => {
@@ -86,7 +86,7 @@ export const fetchSelectedComment = (productCode) => {
 
 export const fetchOrderCheckoutProducts = (orderNumber) => {
   return async (dispatch) => {
-    const response = await fetch("http://127.0.0.1:8000/api/checkout/")
+    const response = await fetch("https://efalcollection.herokuapp.com/api/checkout/")
       .then((res) => res.json())
       .then((data) => data);
       const newData = response?.filter((product) => {
@@ -98,7 +98,7 @@ export const fetchOrderCheckoutProducts = (orderNumber) => {
 
 export const filterCategory = (category) => {
   return async (dispatch) => {
-    const response = await fetch("http://127.0.0.1:8000/api/article/")
+    const response = await fetch("https://efalcollection.herokuapp.com/api/article/")
       .then((res) => res.json())
       .then((data) => data);
     const newData = response?.filter((product) => {
@@ -110,7 +110,7 @@ export const filterCategory = (category) => {
 
 export const searchProduct = (value) => {
   return async (dispatch) => {
-    const response = await fetch("http://127.0.0.1:8000/api/article/")
+    const response = await fetch("https://efalcollection.herokuapp.com/api/article/")
       .then((res) => res.json())
       .then((data) => data);
     const newData = response?.filter((item) => {
@@ -125,7 +125,7 @@ export const searchProduct = (value) => {
 };
 export const updateProduct = async (body) => {
     const newData = await fetch(
-      `http://127.0.0.1:8000/api/article/${body.id}/`,
+      `https://efalcollection.herokuapp.com/api/article/${body.id}/`,
       {
         method: "PUT",
         headers: {
@@ -139,7 +139,7 @@ export const updateProduct = async (body) => {
     // dispatch(setShopActionUpdateProduct(newData));
   };
 export const addCheckoutProduct = async (product) => {
-  const newData = await fetch("http://127.0.0.1:8000/api/checkout/", {
+  const newData = await fetch("https://efalcollection.herokuapp.com/api/checkout/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -150,7 +150,7 @@ export const addCheckoutProduct = async (product) => {
     .then((data) => data);
 };
 export const addCommentInProduct = async (comment) => {
-  const newData = await fetch("http://127.0.0.1:8000/api/comment/", {
+  const newData = await fetch("https://efalcollection.herokuapp.com/api/comment/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -161,7 +161,7 @@ export const addCommentInProduct = async (comment) => {
     .then((data) => data);
 };
 export const addOrder = async (order) => {
-  const newData = await fetch("http://127.0.0.1:8000/api/order/", {
+  const newData = await fetch("https://efalcollection.herokuapp.com/api/order/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
