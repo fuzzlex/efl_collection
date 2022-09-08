@@ -8,14 +8,17 @@
 }
 
 @media screen and (max-width:1450px) {
+    .checkout-root{
+        min-height: 140vh;
     
+    }
+    .container-main-section{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
+    }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-}
+
 /* ------header */
 
 .header{
@@ -77,6 +80,10 @@ h3{
 .buy-vintage{
     display: flex;
 }
+.totalPriceProduct{
+    display: flex;
+    flex-direction: column;
+}
 .buyimg{
     width: 10rem;
     margin: 1rem;
@@ -89,6 +96,7 @@ h3{
     margin-top: 0.5rem;
     font-size: 19px;
     color: #F2994A;
+    display: flex;
 }
 del{
     color: #333333;
@@ -99,8 +107,10 @@ del{
     border: 1px solid #333333;
     display: flex;
     justify-content:space-between;
-    font-size: 20px;
-    padding: 0.5rem;
+    padding: 1rem;
+    width: 9rem;
+    height: 3.5rem;
+    align-items: center;
 }
 #subtract1{
     width: 2rem;
@@ -109,9 +119,12 @@ del{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2.5rem;
 }
 #subtract1:hover{
     cursor: pointer;
+    background-color: #F2994A;
+    transition: all 0.5s;
 }
 #plus1{
     width: 2rem;
@@ -119,10 +132,14 @@ del{
     background-color: #E0E0E0;
     display: flex;
     align-items: center;
+    font-size: 2rem;
+
     justify-content: center;   
 }
 #plus1:hover{
     cursor: pointer;
+    background-color: #F2994A;
+    transition: all 0.5s;
 }
 #numberVin1{
     display: flex;
@@ -197,25 +214,43 @@ del{
     border-bottom: 1px solid #333333;
     margin: 1rem 0.8rem;
 }
+.submit-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.submit-buttons > *{
+    width:10rem
+}
 
 }
 @media screen and (max-width:900px) {
-    .main{
+    .container-main-section{
+        display: flex;
+        justify-content: center;
         flex-wrap: wrap-reverse;
+    }
+    .main{
+        display: flex;
         justify-content:center;
-        align-items: space-between;
+        align-items: center;
 
     }
 
 
     .sectionBuy{
-        order: 0;
-        padding: 1rem;
+        width: 100%;
+        margin-bottom: 3rem;
         
     }
-    .contact-inf-form{
-        width: 22rem;
 
+
+    .contact-inf-form{
+        width: 100%;
+
+    }
+    .buy-vintage_text__button_vintage{
+        width: 6rem;
+        padding: 0.1rem;
     }
     
 }

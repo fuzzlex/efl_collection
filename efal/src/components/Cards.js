@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { CgShoppingCart } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { addCard, addShoppingArea, fetchAllData } from "../redux/actions/shopActions";
+import { updateProduct, addShoppingArea, fetchAllData, fetchAllImages } from "../redux/actions/shopActions";
 import { useNavigate } from "react-router-dom";
 
 import "./Card.css"
@@ -14,6 +14,7 @@ const Cards = () => {
 
   useEffect(() => {
     dispatch(fetchAllData());
+    dispatch(fetchAllImages());
   }, []);
 
   const handleAddCard = (product) => {
@@ -28,10 +29,19 @@ const Cards = () => {
     successNote("Başarıyla Sepetinize Eklendi") 
 
   };
-  const filteredList = useSelector((state) => state.shopReducer.productList);
+  const productList = useSelector((state) => state.shopReducer.productList);
+  const imageList = useSelector((state) => state.shopReducer.selectedImage);
+  console.log(productList)
+  const sortedProducts = productList?.sort((a,b) => a?.title.localeCompare(b?.title))
   const handler = (cardInfo) => {
     navigate("details", {state : {cardInfo}})
   }
+  console.log("productList", productList)
+  console.log("imageList", imageList)
+  productList.map(product => 
+    imageList.map(image => 
+      
+      console.log(image.id )))
   
 
   return (
@@ -42,10 +52,18 @@ const Cards = () => {
         justifyContent: "center",
         flexWrap: "wrap",
       }}
+
+
+
+
+
+
     >
-      {filteredList?.map((item) => (
+      {sortedProducts?.map((item, index) => 
+        imageList?.map((image) => (
+          item.images[0] == image.id && 
         <Card  key={item.id} className="card">
-          <Card.Img onClick={() => handler(item) } variant="top" className="cardimage" src={item.img} />
+          <Card.Img onClick={() => handler(item) } variant="top" className="cardimage" src={image.img1 } />
           <Card.Body className="card-body">
             <Card.Title onClick={() => handler(item) }>{item.title}</Card.Title>
             <Card.Text onClick={() => handler(item) } className="cardprice">{item.price}.00 TL</Card.Text>
@@ -60,7 +78,7 @@ const Cards = () => {
             </Button>
           </Card.Body>
         </Card>
-      ))}
+      )))}
     </div>
   );
 };

@@ -69,14 +69,37 @@
 }
 .comment-area{
     width: 20rem;
-    height: 50vh;
+    height: 65vh;
     border: 1px solid rgb(205, 205, 236);
     padding: 1rem;
     margin: 1rem;
+    background-color: rgb(241, 232, 214);
 
 }
 .comment-area-form{
     height: 100%;
+}
+.comments-area{
+    padding: 2rem;
+
+}
+.comment-card-root{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.comment-card{
+    width: 20rem;
+    height: 10rem;
+    background-color: #e5c9c0;
+    margin: 1rem;
+    padding: 1rem;
+    color: rgb(0, 0, 0);
+    overflow: auto;
+}
+.comment-card h6{
+    text-decoration: underline;
 }
 
 @media screen and (max-width:600px) {

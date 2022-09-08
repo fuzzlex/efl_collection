@@ -6,6 +6,11 @@ import {
   SEARCH,
   FETCH_ALL,
   SUBTRACT_TO_CARD,
+  UPDATE_PRODUCT,
+  ADD_CHECKOUT_PRODUCT,
+  FETCH_ALL_CHECKOUT_PRODUCTS_BY_ORDERNUMBER,
+  FETCH_IMAGE,
+  FETCH_COMMENT
 } from "../actions/blogTypes";
 
 const initialState = {
@@ -13,6 +18,9 @@ const initialState = {
   toAddedIds: [],
   toAddedProduct: [],
   tofilteredProduct: [],
+  orderCheckoutProducts: [],
+  selectedImage: [],
+  selectedComments: [],
 };
 
 const shopReducer = (state = initialState, action) => {
@@ -71,6 +79,11 @@ const shopReducer = (state = initialState, action) => {
           ...state,
           toAddedProduct: [...subtractedProducts, newProductRemoved],
         };
+    case ADD_CHECKOUT_PRODUCT:
+      return {
+        ...state,
+        productList: action.state,
+      };
     case SEARCH:
       return {
         ...state,
@@ -80,6 +93,22 @@ const shopReducer = (state = initialState, action) => {
       return {
         ...state,
         productList: action.state,
+      };
+
+    case FETCH_ALL_CHECKOUT_PRODUCTS_BY_ORDERNUMBER:
+      return {
+        ...state,
+        orderCheckoutProducts: action.state,
+      };
+    case FETCH_IMAGE:
+      return {
+        ...state,
+        selectedImage:  action.state,
+      };
+    case FETCH_COMMENT:
+      return {
+        ...state,
+        selectedComments:  action.state,
       };
     default:
       return state;

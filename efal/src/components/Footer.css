@@ -1,0 +1,20 @@
+.footer-container{
+    background-color: #263238;
+    min-height: 10rem;
+    padding: 2rem;
+    color: aliceblue;
+
+}
+.footer-row-col a{
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: white;
+}
+
+
+.footer-row-col p:first-child{
+    font-weight: 900;
+    font-size: 16px;
+
+}

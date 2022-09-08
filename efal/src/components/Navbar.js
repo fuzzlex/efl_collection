@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { fetchAllData, searchProduct } from "../redux/actions/shopActions";
 import EfalPng from "../assets/Efal.jpeg";
-import "./Navbar.css"
+import "./Navbar.css";
 
 const Navbar = () => {
   const [value, setValue] = useState();
@@ -24,6 +24,7 @@ const Navbar = () => {
   const filte = useSelector((state) => state.shopReducer);
   const shoppedIds = new Set(filte.toAddedIds.map((e) => e)).size;
   const handleSearch = (e) => {
+    e.preventDefault();
     dispatch(searchProduct(value));
     setValue("");
   };
@@ -31,8 +32,9 @@ const Navbar = () => {
     dispatch(fetchAllData());
     navigate("/");
   };
-  const addedProducts = useSelector((state) => state.shopReducer.toAddedProduct);
-
+  const addedProducts = useSelector(
+    (state) => state.shopReducer.toAddedProduct
+  );
 
   return (
     <div>
@@ -45,7 +47,7 @@ const Navbar = () => {
       >
         <Container>
           <NavBar.Brand className="nav-item" onClick={() => handleRefresh()}>
-            <img  src={EfalPng} alt="Navbar İmage" />
+            <img src={EfalPng} alt="Navbar İmage" />
           </NavBar.Brand>
           <NavBar.Toggle className="toggle" />
         </Container>
@@ -53,33 +55,49 @@ const Navbar = () => {
         <Container className="menuitem">
           <NavBar.Collapse>
             <Nav className="nav-item-categories">
-              
-              <Nav.Item  >
-              <Nav.Link  className={window.location.pathname === "/" ? "nav-items-active" : "nav-items"} onClick={() => navigate("/")}>
-                Ana Sayfa
-              </Nav.Link>
-
+              <Nav.Item>
+                <Nav.Link
+                  className={
+                    window.location.pathname === "/"
+                      ? "nav-items-active"
+                      : "nav-items"
+                  }
+                  onClick={() => navigate("/")}
+                >
+                  Ana Sayfa
+                </Nav.Link>
               </Nav.Item>
-              <Nav.Link className="nav-items" onClick={() => navigate("/blog")}>
+              <Nav.Link
+                 className={
+                    window.location.pathname === "/contact"
+                      ? "nav-items-active"
+                      : "nav-items"
+                  }
+                onClick={() => navigate("/contact")}
+              >
                 İletişim
               </Nav.Link>
               <Nav.Link
-                className="nav-items"
-                onClick={() => navigate("/contact")}
+                 className={
+                    window.location.pathname === "/aboutus"
+                      ? "nav-items-active"
+                      : "nav-items"
+                  }
+                onClick={() => navigate("/aboutus")}
               >
-                Contact Us
+                Hakkımızda
               </Nav.Link>
 
-              <Form className="d-flex">
+              <Form onSubmit={handleSearch} className="d-flex">
                 <FormControl
                   type="search"
-                  placeholder="Ara .."
+                  placeholder="Ne Aramıştınız .."
                   className="me-2 form-control"
                   aria-label="Search"
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                 />
-                <Button onClick={() => handleSearch()} variant="outline-dark">
+                <Button type="submit" variant="outline-dark">
                   Ara
                 </Button>
               </Form>
