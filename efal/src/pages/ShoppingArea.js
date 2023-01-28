@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Checkout from "../components/Checkout";
@@ -11,6 +11,10 @@ const ShoppingArea = () => {
 //   console.log(duplicateElementa)
 //   const setAddedProducts = new Set(addedProducds)
 //   console.log(setAddedProducts)
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
 
 
 

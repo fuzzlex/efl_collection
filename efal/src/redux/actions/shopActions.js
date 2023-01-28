@@ -8,9 +8,12 @@ import {
   ADD_CHECKOUT_PRODUCT,
   FETCH_ALL_CHECKOUT_PRODUCTS_BY_ORDERNUMBER,
   FETCH_IMAGE,
-  FETCH_COMMENT
+  FETCH_COMMENT,
+  FETCH_ORDER
 } from "./blogTypes";
 import { infoNote, successNote } from "../../components/Toasty";
+import jQuery from 'jquery'
+
 
 export const setShopActionFilter = (payload) => ({
   type: FILTER_CATEGORY,
@@ -52,6 +55,10 @@ export const fetchSelectedComments = (payload) => ({
   type: FETCH_COMMENT,
   state: payload,
 });
+export const setFetchSelectedOrder = (payload) => ({
+  type: FETCH_ORDER,
+  state: payload,
+});
 
 export const fetchAllData = () => {
   return async (dispatch) => {
@@ -59,12 +66,23 @@ export const fetchAllData = () => {
       .then((res) => res.json())
       .then((data) => dispatch(setShopActionFetch(data)));
   };
+
 };
 export const fetchAllImages = () => {
   return async (dispatch) => {
        await fetch("https://efalcollection.herokuapp.com/api/image/")
       .then((res) => res.json())
       .then((data) =>  dispatch(setFetchSelectedImage(data)));
+    };
+   
+
+    }
+export const fetchSelectedOrder = (orderId) => {
+  return async (dispatch) => {
+       await fetch(`https://efalcollection.herokuapp.com/api/order/${orderId}/`)
+      .then((res) => res.json())
+
+      .then((data) => dispatch(setFetchSelectedOrder(data)) );
     };
    
 
@@ -138,6 +156,21 @@ export const updateProduct = async (body) => {
       .then((data) => data);
     // dispatch(setShopActionUpdateProduct(newData));
   };
+export const updatePayedOrder = async (order) => {
+    const newData = await fetch(
+      `https://efalcollection.herokuapp.com/api/order/${order.id}/`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => data);
+    // dispatch(setShopActionUpdateProduct(newData));
+  };
 export const addCheckoutProduct = async (product) => {
   const newData = await fetch("https://efalcollection.herokuapp.com/api/checkout/", {
     method: "POST",
@@ -171,6 +204,35 @@ export const addOrder = async (order) => {
     .then((res) => res.json())
     .then((data) => data);
 };
+// export const sendCardInfo = async (cardInfo) => {
+//   function getCookie(name) {
+//     var cookieValue = null;
+//     if (document.cookie && document.cookie !== '') {
+//         var cookies = document.cookie.split(';');
+//         for (var i = 0; i < cookies.length; i++) {
+//             var cookie = jQuery.trim(cookies[i]);
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+//   }
+//   var csrftoken = getCookie('csrftoken');
+//   const newData = await fetch("https://efalcollection.herokuapp.com/payment/checkout/", {
+//     method: "POST",
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json',
+//       'X-CSRFToken': csrftoken
+//     },
+//     body: JSON.stringify(cardInfo),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => data);
+//     console.log(newData)
+// };
 
 export const addShoppingArea = (product) => {
   return async (dispatch) => {
@@ -185,7 +247,7 @@ export const subtractShoppingArea = (product) => {
 };
 
 // export const productUpdate = async (body, id)  => {
-//   return await fetch(`https://127.0.0.1:8000/api/article/${id}/`,
+//   return await fetch(`https://efalcollection.herokuapp.com/api/article/${id}/`,
 //   {
 //     'method' : 'PUT',
 //     headers : {
@@ -205,3 +267,33 @@ export const subtractShoppingArea = (product) => {
 //   )
 
 // }
+
+export function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    var cookies = document.cookie.split(";");
+    console.log("cookies", document.cookie)
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = jQuery.trim(cookies[i]);
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        console.log(cookieValue)
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+let _csrfToken = null;
+export const fetchCsrfToken = async () => {
+  if (_csrfToken === null) {
+    const response = await fetch(`https://efalcollection.herokuapp.com/payment/csrf/`, {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    const data = await response.json();
+    _csrfToken = data.csrfToken;
+  }
+  return _csrfToken;
+}

@@ -1,6 +1,6 @@
 /* ---NavBar---- */
 .App{
-    background-color: #ffffff;
+    /* background-color: #f3f7f2; */
     display:flex;
     justify-content: space-between;
     /* min-height: 7vh; */
@@ -9,40 +9,47 @@
 }
 
 .toggle{
-    background-color: #8C697D;
+    background-color:#b0bec5;
     display: flex;
     justify-content: center;
+    align-items: center;
+    
 } 
+.toggle > *{
+    color: white;
+}
 .nav-item-categories{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* width: 20rem; */
 }
+
 .nav-item img{
     object-fit: cover;
     object-position: 0 60%;
     cursor: pointer;
 }
 .nav-items{
-    margin-right:1rem;
+    /* margin-right:0.5rem; */
     width: 8rem;
     /* height: 2.5rem; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     
     /* border-radius: 5rem; */
-    /* padding: 1rem; */
-    color: white;
 }
 .nav-items-active{
-    margin-right:1rem;
+    /* margin-right:0.5rem; */
     width: 8rem;
-    border-bottom: 2px solid rgb(27, 27, 54);
-    display: flex;
+    border-bottom: 2px solid #f4511e;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    color: white;
+    align-items: center; */
+    font-weight: 900;
+    transition: all 0.8s;
+    color: #f4511e;
 }
 .shop{
     height: 2rem;
@@ -57,6 +64,7 @@
     right:1.5rem ;
     color:#000000 ;
     font-size: 0.8rem;
+    top: 0;
  
 }
 /* .nav-items:hover, .nav-items:focus{
@@ -65,8 +73,7 @@
     
 } */
 .form-control{
-    width: 34vw;
-    height: vh;
+    max-width: 10rem;
 }
 
 
@@ -75,4 +82,19 @@
     width: 12rem;
     height: 5rem;
     object-fit: cover;
+}
+
+.shopBasketNav{
+    display: block;
+    transition: all 0.8s;
+    cursor: pointer;
+    background-color: #ff5722;
+    opacity: 0.5;
+    border-radius: 50%;
+    padding: 0.7rem;
+
+}
+.shopItem{
+    font-size: 3rem;
+    color: black;
 }

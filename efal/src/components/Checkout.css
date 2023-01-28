@@ -7,15 +7,16 @@
     box-sizing: border-box;
 }
 
-@media screen and (max-width:1450px) {
+@media screen and (max-width:2750px) {
     .checkout-root{
         min-height: 140vh;
     
     }
     .container-main-section{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap-reverse;
+        /* display: flex; */
+        /* justify-content: space-evenly; */
+        /* flex-wrap: wrap; */
+        padding: 1rem;
     }
 
 
@@ -34,12 +35,8 @@
 
 .main{
     display: flex;
-    justify-content:space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    
+    flex-direction: column;
 }
-
 
 h3{
     color: #333333;
@@ -47,10 +44,8 @@ h3{
 }
 
 .contact-inf-form{
-    width: 35rem;
+    min-width: 100%;
 }
-
-
 .continue-submit{
     display: flex;
     justify-content: end;
@@ -70,26 +65,27 @@ h3{
 /*-----BUY----- */
 
 .sectionBuy{
-    /* margin: 2rem; */
     background-color: #EEEEEE;
-    width: 32rem;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
+    padding: 1rem;
+
 }
-.buy-vintage{
-    display: flex;
-}
+
+
 .totalPriceProduct{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 .buyimg{
-    width: 10rem;
-    margin: 1rem;
+    width: 100%;
     border-radius: 20px;
+
 }
 .buy-vintage_text{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     margin: 1rem;
 }
 .buy-vintage_text h4{
@@ -245,8 +241,7 @@ del{
 
 
     .contact-inf-form{
-        width: 100%;
-
+        min-width: 20rem;
     }
     .buy-vintage_text__button_vintage{
         width: 6rem;

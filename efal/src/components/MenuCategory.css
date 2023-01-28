@@ -1,5 +1,6 @@
 .menuCategory-nav{
-    background-color: #e0e0e0;
+    background-color: #f5f5f5;
+    margin-top: 1rem;
 }
 
 .menuCategory-nav-link{
@@ -7,7 +8,7 @@
     background-color: rgb(152, 221, 129);
 }
 .menuCategory-nav-link:hover, .menuCategory-nav-link:focus {
-    background-color: rgb(206, 136, 136);
+    background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     transition: 0.8s background-color;
 }

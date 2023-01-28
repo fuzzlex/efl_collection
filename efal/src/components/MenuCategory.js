@@ -31,15 +31,15 @@ const MenuCategory = () => {
   };
 
   return (
-    <div>
-      <Nav className="menuCategory-nav" fill variant="tabs">
+    <div style={{marginTop:"2rem"}} >
+      <Nav className="menuCategory-nav p-1" fill variant="tabs">
         <Nav.Item>
           <Nav.Link
             className="menuCategory-nav-link"
             onClick={() => handleRefresh()}
             active = {categoryActive}
           >
-            Tümü
+            <h3 style={{fontSize:"1.1rem"}}>Tüm Ferace Modelleri</h3>
           </Nav.Link>
         </Nav.Item>
         {Array.from(newData).map((category, index) => (
@@ -48,7 +48,8 @@ const MenuCategory = () => {
               className="menuCategory-nav-link"
               onClick={() => handleClick(category)}
             >
-              {category}
+            <h3 style={{fontSize:"1.1rem"}}>{category}</h3>
+              
             </Nav.Link>
           </Nav.Item>
         ))}

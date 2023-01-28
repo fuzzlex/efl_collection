@@ -10,7 +10,8 @@ import {
   ADD_CHECKOUT_PRODUCT,
   FETCH_ALL_CHECKOUT_PRODUCTS_BY_ORDERNUMBER,
   FETCH_IMAGE,
-  FETCH_COMMENT
+  FETCH_COMMENT,
+  FETCH_ORDER
 } from "../actions/blogTypes";
 
 const initialState = {
@@ -19,8 +20,9 @@ const initialState = {
   toAddedProduct: [],
   tofilteredProduct: [],
   orderCheckoutProducts: [],
-  selectedImage: [],
+  allImage: [],
   selectedComments: [],
+  selectedOrder: [],
 };
 
 const shopReducer = (state = initialState, action) => {
@@ -41,7 +43,6 @@ const shopReducer = (state = initialState, action) => {
         productList: action.state,
       };
     case ADD_TO_CARD:
-      console.log(action.state.productAmount);
       const newProduct = {
         ...action.state,
         productAmount:
@@ -103,12 +104,17 @@ const shopReducer = (state = initialState, action) => {
     case FETCH_IMAGE:
       return {
         ...state,
-        selectedImage:  action.state,
+        allImage:  action.state,
       };
     case FETCH_COMMENT:
       return {
         ...state,
         selectedComments:  action.state,
+      };
+    case FETCH_ORDER:
+      return {
+        ...state,
+        selectedOrder:  action.state,
       };
     default:
       return state;

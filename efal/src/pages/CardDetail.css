@@ -4,24 +4,22 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 0 5rem;
+
 
 }
 .shopping-area{
-    width: 60rem;
-    /* height: 90vh; */
+    /* width: 60rem; */
     border: 1px solid gray;
     display: flex;
-    /* justify-content: space-around; */
-    /* align-items: flex-start; */
-    /* flex-wrap: wrap; */
     margin: 1rem;
 }
 .shopping-area-image{
-    width: 22rem;
+    width: 20rem;
 
 }
 .shopping-area-image >*{
-    margin: 1rem;
+    padding: 1rem;
 
 }
 .shopping-area-image img{
@@ -29,7 +27,7 @@
 }
 .shopping-area-image-other{
     display: flex;
-    width: 20rem;
+    width: 25rem;
     flex-wrap: wrap;
 }
 .shopping-area-image-other img{
@@ -68,19 +66,21 @@
     
 }
 .comment-area{
-    width: 20rem;
-    height: 65vh;
+    min-width:20rem;
+    /* height: 65vh; */
     border: 1px solid rgb(205, 205, 236);
     padding: 1rem;
     margin: 1rem;
-    background-color: rgb(241, 232, 214);
+    background-color: rgba(227, 225, 222, 0.905);
 
 }
 .comment-area-form{
     height: 100%;
+    min-width: 100%;
 }
 .comments-area{
     padding: 2rem;
+
 
 }
 .comment-card-root{
@@ -100,6 +100,24 @@
 }
 .comment-card h6{
     text-decoration: underline;
+}
+.shopBasketDetail{
+    position:fixed;
+    right:10% ;
+    top: 10%;
+    /* background-color: rgba(25,35,125,0.5); */
+    z-index: 999;
+    transition: all 0.8s;
+    cursor: pointer;
+    background-color: #ff5722;
+    opacity: 0.5;
+    border-radius: 50%;
+    padding: 0.7rem;
+
+}
+.shopItem{
+    font-size: 3rem;
+    color: black;
 }
 
 @media screen and (max-width:600px) {

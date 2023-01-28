@@ -9,15 +9,17 @@ import {
   Badge,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { CgShoppingCart } from "react-icons/cg";
+import { TiShoppingCart } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { fetchAllData, searchProduct } from "../redux/actions/shopActions";
 import EfalPng from "../assets/Efal.jpeg";
+import EfalPng2 from "../assets/logo_1.png";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [value, setValue] = useState();
+  const [collapse, setCollapse] = useState(true);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -37,26 +39,54 @@ const Navbar = () => {
   );
 
   return (
-    <div>
+    <div className="navbarRoot">
       <NavBar
         className="App"
-        variant="light"
-        sticky="top"
         expand="xl"
-        collapseOnSelect
+        collapseOnSelect={collapse}
+        variant="light"
       >
-        <Container>
-          <NavBar.Brand className="nav-item" onClick={() => handleRefresh()}>
-            <img src={EfalPng} alt="Navbar İmage" />
-          </NavBar.Brand>
-          <NavBar.Toggle className="toggle" />
-        </Container>
+        {window.screen.width < 500 ? (
+          <Container className="d-flex justify-content-center align-items-center">
+            <NavBar.Brand className="nav-item" onClick={() => handleRefresh()}>
+              <img src={EfalPng} alt="Efal Collection Ferace Tesettür Giyim" />
+              <img
+                style={{ width: "5rem" }}
+                src={EfalPng2}
+                alt="Efal Collection Ferace Tesettür Giyim"
+              />
+            </NavBar.Brand>
+            <NavBar.Toggle
+              style={{ backgroundColor: "#f5f5f5" }}
+              className="toggle w-100"
+              variant="light"
+            />
+          </Container>
+        ) : (
+          <></>
+        )}
 
-        <Container className="menuitem">
-          <NavBar.Collapse>
+        <Container>
+        
+          <NavBar.Collapse
+            style={{
+              backgroundColor: "#ffffff",
+              position: window.screen.width < 500 ? "fixed" : "block",
+              zIndex: "1000",
+              left: window.screen.width < 500 ? "50%" : "0",
+              transform:
+                window.screen.width < 500 ? "translateX(-50%)" : "none",
+              width: "100%",
+              // minHeight: "100%",
+              top: window.screen.width < 500 ? "12rem" : "0",
+            }}
+            className="p-1"
+          >
             <Nav className="nav-item-categories">
+              
               <Nav.Item>
                 <Nav.Link
+                  style={{ color: "black" }}
                   className={
                     window.location.pathname === "/"
                       ? "nav-items-active"
@@ -68,47 +98,37 @@ const Navbar = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Link
-                 className={
-                    window.location.pathname === "/contact"
-                      ? "nav-items-active"
-                      : "nav-items"
-                  }
+                style={{ color: "black" }}
+                className={
+                  window.location.pathname === "/contact"
+                    ? "nav-items-active"
+                    : "nav-items"
+                }
                 onClick={() => navigate("/contact")}
               >
                 İletişim
               </Nav.Link>
               <Nav.Link
-                 className={
-                    window.location.pathname === "/aboutus"
-                      ? "nav-items-active"
-                      : "nav-items"
-                  }
+                style={{ color: "black" }}
+                className={
+                  window.location.pathname === "/aboutus"
+                    ? "nav-items-active"
+                    : "nav-items"
+                }
                 onClick={() => navigate("/aboutus")}
               >
                 Hakkımızda
               </Nav.Link>
-
-              <Form onSubmit={handleSearch} className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Ne Aramıştınız .."
-                  className="me-2 form-control"
-                  aria-label="Search"
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                />
-                <Button type="submit" variant="outline-dark">
-                  Ara
-                </Button>
-              </Form>
               <Nav.Link
-                className="badgeCont"
-                onClick={() => navigate("/shopping")}
+                style={{ color: "black" }}
+                className={
+                  window.location.pathname === "/ordertrack"
+                    ? "nav-items-active"
+                    : "nav-items"
+                }
+                onClick={() => navigate("/ordertrack")}
               >
-                <CgShoppingCart className="shop" />
-                <Badge className="badge" pill bg="warning">
-                  {addedProducts.length}
-                </Badge>
+                Sipariş Takip
               </Nav.Link>
             </Nav>
           </NavBar.Collapse>

@@ -3,14 +3,7 @@
 
 /* ---Home--- */
 
-.carousel{
-    width: 100vw;
-    height: 50vh;
-    object-fit: cover;
-    object-position: 1% 100%;
-    scale: 0.95;
-    
-}
+
 .card{
     max-height: 30rem;
     margin: 1rem;

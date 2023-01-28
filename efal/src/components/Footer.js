@@ -9,29 +9,32 @@ import Iyzico from "../assets/Iyzico_logo.svg";
 import "./Footer.css";
 import { useNavigate } from "react-router-dom";
 const Footer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <Container fluid className="footer-container">
-      <Row>
-        <Col className="footer-row-col">
+    <div>
+      <Row className="bg-secondary text-white p-5">
+        <Col className="column">
           <p>Efal Collection</p>
-          <a href="/">Ana Sayfa</a><br/>
+          <a href="/">Ana Sayfa</a>
+          <br />
           <a href="/aboutus">Hakkımızda</a>
         </Col>
-        <Col className="footer-row-col">
+        <Col className="column">
           <p>Kullanım Şartları</p>
-          <a href="/privacy">Gizlilik Politikası</a><br />
-          <a href="/deliveryreturn">İade ve Tesimat Şartları</a><br />
+          <a href="/privacy">Gizlilik Politikası</a>
+          <br />
+          <a href="/deliveryreturn">İade ve Tesimat Şartları</a>
+          <br />
           <a href="/saleagreement">Mesafeli Satış Sözleşmesi</a>
           <br />
           <br />
           <br />
         </Col>
-        <Col className="footer-row-col"><p>Destek</p>
-        <a href="info@efalcollection.com" >  info@efalcollection.com</a>
-        <p>+90 543 171 9431</p>
-
+        <Col className="column">
+          <p>Destek</p>
+          <a href="info@efalcollection.com"> info@efalcollection.com</a>
+          <p>+90 543 171 9431</p>
         </Col>
         <Col>
           <img
@@ -42,6 +45,7 @@ const Footer = () => {
               width: "4rem",
             }}
             src={Visa}
+            alt="Visa"
           />
           <img
             style={{
@@ -51,6 +55,7 @@ const Footer = () => {
               width: "4rem",
             }}
             src={Mastercard}
+            alt="Mastercard"
           />
           <img
             style={{
@@ -60,22 +65,19 @@ const Footer = () => {
               width: "4rem",
             }}
             src={Iyzico}
+            alt="Iyzico"
           />
         </Col>
-      
+      </Row>
 
+      <Row className="bg-dark">
+        <Col xs={12}>
+          <h6 className="text-muted p-2">
+            Tüm Hakları Saklıdır Powered by © efalcollection 2022{" "}
+          </h6>
+        </Col>
       </Row>
-      <Row>
-        <Col></Col>
-        <Col></Col>
-        <Col></Col>
-      </Row>
-      <Row>
-        <Col></Col>
-        <Col></Col>
-        <Col></Col>
-      </Row>
-    </Container>
+    </div>
   );
 };
 

@@ -18,6 +18,7 @@ import "./styles.css";
 
 import "react-credit-cards/es/styles-compiled.css";
 import { Form } from "react-bootstrap";
+import { sendCardInfo } from "../../redux/actions/shopActions";
 
 const PaymentMain = () => {
   const state = {
@@ -31,16 +32,8 @@ const PaymentMain = () => {
   };
   const [payment, setPayment] = useState(state);
 
-  //   useEffect(() => {
-  //     ref.current.focus();
-  //   }, []);
 
-  //   const ref = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  console.log(payment);
 
   return (
     <div>
@@ -61,7 +54,7 @@ const PaymentMain = () => {
               style={{ width: "100%" }}
             />
           </div>
-          <Form>
+          {/* <Form>
             <h3>Kredi Kartı Bilgileri</h3>
 
             <Form.Floating className="mb-3">
@@ -139,10 +132,10 @@ const PaymentMain = () => {
               />
             </FloatingLabel>
 
-            {/* <div className="continue-submit">
+            <div className="continue-submit">
               <input onClick={handleSubmit} type="submit" value="Continue" />
-            </div> */}
-          </Form>
+            </div>
+          </Form> */}
         </div>
 
         {/* <SupportedCards /> */}
